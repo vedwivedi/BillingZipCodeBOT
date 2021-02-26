@@ -1,0 +1,158 @@
+{
+    "friendlyName" : "BillingZipCodeBOT",
+    "logQueries" : true,
+    "uniqueName" : "BillingZipCodeBOT",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://greeting",
+            "fallback" : "task://fallback",
+            "collect" : {
+                "validate_on_failure" : "task://fallback"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "collect" : {
+                "validate" : {
+                    "on_failure" : {
+                        "repeat_question" : false,
+                        "messages" : [{ "say" : { "speech" : "" } }]
+                    },
+                    "on_success" : { "say" : { "speech" : "" } },
+                    "max_attempts" : 0
+                }
+            },
+            "voice" : {
+                "say_voice" : "Polly.Joanna-Neural"
+            },
+            "name" : ""
+        }
+    },
+    "fieldTypes" : [],
+    "tasks" : [
+        {
+            "uniqueName" : "zip_complet_task",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "dummy",
+            "actions" : {
+                "actions" : [
+                    {
+                        "remember" : {
+                            "billingzip" : "55",
+                            "question" : "collectzip_task"
+                        }
+                    },
+                    {
+                        "redirect" : "task://fallback"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "dummy"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "yes_no_task",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "yes_no",
+                    "fieldType" : "Twilio.YES_NO"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Yes {yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "collectzip_task",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "agent_transfer_task",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "greeting",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+               
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        }
+        
+    ],
+    "modelBuild" : {
+        "uniqueName" : "BillingZipCodeBOT_26-2-2021_2.17.46am"
+    }
+}
