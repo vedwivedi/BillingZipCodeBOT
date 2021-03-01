@@ -22,14 +22,11 @@ exports.yes_no_task = async function (context, event, callback, RB) {
       userInput = event.CurrentInput;
     }
 
-
-    // const {​​ CurrentInput }​​ = event;
-
     console.log("userInput: " + userInput);
     
     let YesNo = "";
     if (userInput != "") {
-      YesNo = userInput.toLowerCase();
+      YesNo = CheckYesNoInput(userInput.toLowerCase());
     }
 
     console.log(event.Field_yes_no_Value);
@@ -64,4 +61,39 @@ exports.yes_no_task = async function (context, event, callback, RB) {
     callback(error);
   }
 };
+
+function CheckYesNoInput(x) {
+  let sYesNo = '';
+
+  if (x.includes('not')) sYesNo = 'No';
+  if (x.includes('not my')) sYesNo = 'No';
+  if (x.includes('wrong')) sYesNo = 'No';
+  if (x.includes('it is wrong')) sYesNo = 'No';
+  if (x.includes('noway')) sYesNo = 'No';
+  if (x.includes('nah')) sYesNo = 'No';
+  if (x.includes('negative')) sYesNo = 'No';
+  if (x.includes('it is not true')) sYesNo = 'No';
+  if (x.includes('thats not my zip code')) sYesNo = 'No';
+  if (x.includes("that's not my zip code")) sYesNo = 'No';
+  if (x.includes('that is not my zip code')) sYesNo = 'No';
+  if (x.includes("that's not me")) sYesNo = 'No';
+  if (x.includes('thats not me')) sYesNo = 'No';
+
+  if (x.includes('correct')) sYesNo = 'Yes';
+  if (x.includes("that's me")) sYesNo = 'Yes';
+  if (x.includes('thats me')) sYesNo = 'Yes';
+  if (x.includes('it is correct')) sYesNo = 'Yes';
+  if (x.includes('its my')) sYesNo = 'Yes';
+  if (x.includes('it is my')) sYesNo = 'Yes';
+  if (x.includes('right')) sYesNo = 'Yes';
+  if (x.includes('okay')) sYesNo = 'Yes';
+  if (x.includes('ok')) sYesNo = 'Yes';
+  if (x.includes('agree')) sYesNo = 'Yes';
+  if (x.includes('yup')) sYesNo = 'Yes';
+  if (x.includes('okay')) sYesNo = 'Yes';
+  if (x.includes('It is true')) sYesNo = 'Yes';
+  console.log("sYesNo: " + sYesNo);
+
+  return sYesNo.toLowerCase();
+}
 

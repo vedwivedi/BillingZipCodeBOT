@@ -84,11 +84,11 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is my zip code"
+                    "taggedText" : "{yes_no}  that is my name"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no} that's not my zip code."
+                    "taggedText" : "{yes_no} that's not my name."
                 },
                 {
                     "language" : "en-US",
@@ -132,7 +132,7 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is not my zip code"
+                    "taggedText" : "{yes_no}  that is not my name"
                 },
                 {
                     "language" : "en-US",
@@ -157,7 +157,7 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no} its not my zip code"
+                    "taggedText" : "{yes_no} its not my name"
                 },
                 {
                     "language" : "en-US",

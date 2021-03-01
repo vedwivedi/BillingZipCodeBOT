@@ -10,7 +10,6 @@ exports.fallback =async function(context, event, callback,RB) {
   let Redirect = false;
   let Handoff = false;
   let Say = "";
-  
     const Memory = JSON.parse(event.Memory);
 
     console.log("Question:" +Memory.question);
@@ -35,36 +34,7 @@ exports.fallback =async function(context, event, callback,RB) {
         }
       break;
 
-    //   case 'check_name_task':
-    //     if(Memory.check_name_task_counter === undefined)
-    //       Remember.check_name_task_counter = 1;
-    //     else 
-    //       Remember.check_name_task_counter = parseInt(Memory.check_name_task_counter) + 1;
-  
-    //     if(Memory.check_name_task_counter >= 2) 
-    //      Redirect ="task://agent_transfer";  
-    //     else{
-    //     Say = "I did not understand.";
-    //     Redirect ="task://check_name_task";
-    //     }
-    //   break;  
-
-    //   case 'ZipOrSSN_Task':
-    //     if(Memory.ZipOrSSN_Task_counter === undefined)
-    //       Remember.ZipOrSSN_Task_counter = 1;
-    //     else 
-    //        Remember.ZipOrSSN_Task_counter = parseInt(Memory.ZipOrSSN_Task_counter) + 1;
-  
-    //     if(Memory.ZipOrSSN_Task_counter >= 1) 
-    //       Redirect ="task://agent_transfer"; 
-    //     else{
-    //       Say = "I did not understand.";
-    //       Redirect ="task://ZipOrSSN_Taks";
-    //     }
-    //   break;  
-  
       default:
-        //Redirect ="task://agent_transfer_task";
         if(Memory.greeting_Counter >= 2) {
           Redirect = "task://agent_transfer_task";  
         }
