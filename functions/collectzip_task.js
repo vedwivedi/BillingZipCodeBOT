@@ -15,14 +15,12 @@ try {
 
   if(Memory.collectzip_task_Counter === undefined)
       Remember.collectzip_task_Counter = 0;
-  else if(Memory.collectzip_task_Counter >= 2)
-       Redirect = "task://agent_transfer_task";
-  else
+   else
       Remember.collectzip_task_Counter = parseInt(Memory.collectzip_task_Counter) + 1;
 
    ////////////////////////
-  
-    let sQues = `Please enter the 5 digit zip code associated with the card`;
+   if(Memory.collectzip_task_Counter <= 2 || Remember.collectzip_task_Counter == 0){
+    let sQues = `Please enter the 5 digit billing zip code.`;
     Collect = true;
     Collect = {
         "name": "collect_zip",
@@ -41,6 +39,11 @@ try {
           "redirect": "task://zip_complet_task"
         }
       };
+    }
+    else{
+      Collect = false;
+       Redirect = "task://agent_transfer_task";
+    }
     
    RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
   } catch (error) {

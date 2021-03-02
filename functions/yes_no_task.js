@@ -7,7 +7,7 @@ exports.yes_no_task = async function (context, event, callback, RB) {
     let Prompt = '';
     let Tasks = false;
     let Remember = {};
-    let Redirect = true;
+    let Redirect = false;
     let Listen = false;
     let Collect = false;
     let Handoff = false;
@@ -21,39 +21,48 @@ exports.yes_no_task = async function (context, event, callback, RB) {
     else {
       userInput = event.CurrentInput;
     }
-
     console.log("userInput: " + userInput);
-    
     let YesNo = "";
     if (userInput != "") {
       YesNo = CheckYesNoInput(userInput.toLowerCase());
     }
-
     console.log(event.Field_yes_no_Value);
     console.log("YesNo: " + YesNo);
-
-      Remember.question = "yes_no_task";
+    //Remember.question = "yes_no_task";
     
-    //  switch (Memory.question) {
-    //    case 'yes_no_task':
-        if (event.Field_yes_no_Value === 'Yes' || YesNo === 'yes') {
-            Redirect = "task://zip_complet_task";
-        } else if (event.Field_yes_no_Value === 'No' || YesNo === 'no') {
-          Remember.zipverifiedyes = 'No';
-          Redirect = "task://collectzip_task";
+      switch (Memory.question) {
+        case 'greeting':
+          if (event.Field_yes_no_Value === 'Yes' || YesNo === 'yes') {
+              Redirect = "task://zip_complet_task";
+          } else if (event.Field_yes_no_Value === 'No' || YesNo === 'no') {
+            Remember.zipverifiedyes = 'No';
+            Redirect = "task://collectzip_task";
 
-        } else {
-          Remember.question = "greeting";
-          Redirect = 'task://fallback';
-        }
-    //      break;
+          } else {
+            Remember.question = "greeting";
+            Redirect = 'task://fallback';
+          }
+        break;
+        case 'confirm_rout_task':
+          console.log("yes_no_task case confirm_rout_task");
+          if(event.Field_yes_no_Value === 'Yes' || YesNo === 'yes'){
+              Remember.billingzip = Memory.accountzip;
+              Say = `Thank you for providing the zip code.`;
+              //Redirect = "task://zip_complet_task";
+          }else if(event.Field_yes_no_Value === 'No' || YesNo === 'no'){
+              Remember.zipverifiedyes = 'No';
+              Redirect = "task://collectzip_task";
+          }else{
+            Remember.question = "confirm_rout_task";
+            Redirect = 'task://fallback';
+          }
+        break;
+        default:
+           Remember.question = "confirm_rout_task";
+           Redirect = 'task://fallback';
 
-    //    default:
-    //       Remember.question = "greeting";
-    //       Redirect = 'task://fallback';
-
-    //      break;
-    //  }
+          break;
+      }
     
     RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
   } catch (error) {

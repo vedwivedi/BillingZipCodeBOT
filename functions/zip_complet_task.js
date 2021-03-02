@@ -1,4 +1,4 @@
-const axios = require('axios');
+const { postcodeValidator} = require('postcode-validator');
 exports.zip_complet_task =async function(context, event, callback,RB) {
   try {
     let Listen = false;
@@ -31,31 +31,30 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
 
     else if(Memory.question == 'collectzip_task'){
       try{
-
           Remember.question = "collectzip_task";
           collect_zip = Memory.twilio.collected_data.collect_zip.answers.collect_zip.answer;
-          Remember.billingzip = collect_zip;
           console.log("collectzip_task: "+collect_zip);
+         const ZipValidate = postcodeValidator(collect_zip, 'US'); // zip code validate
+          console.log("ZipValidator: " + ZipValidate); // true and false
 
-          if(collect_zip.length != 5){
-            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>, , its not correct., ,  The Zip code should be 5 digits.`;
-            console.log("collect_zip.length: "+collect_zip);
-            
-            if(Memory.collectzip_task_Counter >= 2){
-              checkagent = 1;
-              Redirect = "task://agent_transfer_task";  
-            }
-            else
-              Redirect = 'task://collectzip_task';
-            
+          //////////Start validation for Zip code///////////
+          if( ZipValidate ){
+            Remember.accountzip = collect_zip;
+            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as> , ,  Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
+            Redirect = "task://confirm_rout_task";
           }
-          else
-            Say = `Thank you for validating zip code <say-as interpret-as='digits'>${collect_zip}</say-as>`;
-          
+          else{
+            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>, , its not correct.`;
+            console.log("collect_zip.length: "+collect_zip);
+              if(Memory.collectzip_task_Counter >= 2)
+                  Redirect = "task://agent_transfer_task"; 
+              else
+                  Redirect = 'task://collectzip_task';
+            }
+          //////////End Zip code validation//////////////////
         }
       catch{
-            collect_zip = Memory.accountzip;
-            Remember.billingzip = Memory.accountzip;
+            Remember.accountzip = collect_zip;
             console.log("collectzip_task catch: "+collect_zip);
             Redirect = "task://fallback";
         }

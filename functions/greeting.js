@@ -29,7 +29,7 @@ exports.greeting = async function(context, event, callback,RB) {
 
     /////////////////////////////////////////////////////////////////
 
-    sQues = `Is <say-as interpret-as='digits'>${ZipCode}</say-as> , ,  the billing zip code for your credit card. Say yes or no, you can also press 1 for yes and 2 for no `;
+    sQues = `Is <say-as interpret-as='digits'>${ZipCode}</say-as> , ,  the billing zip code. Say yes or no, you can also press 1 for yes and 2 for no `;
     console.log(sQues);
       Say = `${sQues}`;
       Listen = true;

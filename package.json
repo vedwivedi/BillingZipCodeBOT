@@ -8,12 +8,14 @@
     "deploy": "twilio-run deploy"
   },
   "dependencies": {
-    "axios": "^0.21.0"
+    "axios": "^0.21.0",
+    "is-valid-zipcode": "^1.0.3",
+    "postcode-validator": "^3.1.1"
   },
   "devDependencies": {
     "twilio-run": "^2.6.0"
   },
   "engines": {
-    "node": "10"
+    "node": "12"
   }
 }
