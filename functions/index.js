@@ -2,13 +2,10 @@ const functions = Runtime.getFunctions();
 const greetingTaskHandler = require(functions['greeting'].path);
  const collectzip_taskHandler = require(functions['collectzip_task'].path);
  const zip_complet_taskHandler = require(functions['zip_complet_task'].path);
-// const check_name_Yes_NoTaskHandler = require(functions['check_name_Yes_No'].path);
- const yes_noTaksHandler = require(functions['yes_no_task'].path); 
-// const ZipOrSSN_TaksHandler = require(functions['ZipOrSSN_Taks'].path);  
+ const yes_noTaksHandler = require(functions['yes_no_task'].path);   
  const agent_transfer_TaskHandler = require(functions['agent_transfer_task'].path);
  const FallbackTaskHandler = require(functions['fallback'].path);
 const responseBuilder = require(functions['response_builder'].path);
- 
 
 exports.handler = async (context, event, callback) => {
 console.log("index");

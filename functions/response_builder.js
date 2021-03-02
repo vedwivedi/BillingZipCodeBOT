@@ -14,20 +14,6 @@ exports.RB=async function (Say, Listen, Remember, Collect, Tasks, Redirect, Hand
           },
         });
       }
-    
-      // if (Listen) {
-      //   if (Tasks) {
-      //     responseObject.actions.push({
-      //       listen: {
-      //         tasks: Tasks,
-      //       },
-      //     });
-      //   } else {
-      //     responseObject.actions.push({
-      //       listen: true,
-      //     });
-      //   }
-      // }
       if ( Listen ) {
         responseObject.actions.push(
                 { 
@@ -75,14 +61,9 @@ exports.RB=async function (Say, Listen, Remember, Collect, Tasks, Redirect, Hand
         }
 
       }
-  // try{
-  // console.log(JSON.stringify(responseObject));
-  // }
-  // catch{
-  //   console.log("catch:"+ JSON.stringify(responseObject));
-  // }
+  
   console.log(JSON.stringify(responseObject));
-  console.log("Say: "+Say +"Listen: "+ Listen +"Remember: "+ Remember+ "Collect: "+Collect+"Tasks: " +Tasks+ "Redirect: "+Redirect+ "Handoff: "+ Handoff);
-  // return twilio function response
+  //console.log("Say: "+Say +"Listen: "+ Listen +"Remember: "+ Remember+ "Collect: "+Collect+"Tasks: " +Tasks+ "Redirect: "+Redirect+ "Handoff: "+ Handoff);
+ 
   callback(null, responseObject);
   }

@@ -1,8 +1,6 @@
 const axios = require('axios');
-// This is your new function. To start, set the name and path on the left.
-
 exports.fallback =async function(context, event, callback,RB) {
-  try {
+try {
   let Listen = false;
   let Remember = {};
   let Collect = false;
@@ -10,9 +8,8 @@ exports.fallback =async function(context, event, callback,RB) {
   let Redirect = false;
   let Handoff = false;
   let Say = "";
-    const Memory = JSON.parse(event.Memory);
-
-    console.log("Question:" +Memory.question);
+  const Memory = JSON.parse(event.Memory);
+  console.log("Question:" +Memory.question);
     switch ( Memory.question ) {
       case 'greeting':
         if(Memory.greeting_Counter >= 2) {

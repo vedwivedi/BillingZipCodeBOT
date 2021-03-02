@@ -77,7 +77,6 @@ function CheckYesNoInput(x) {
   if (x.includes("that's not my zip code")) sYesNo = 'No';
   if (x.includes('that is not my zip code')) sYesNo = 'No';
  
-
   if (x.includes('correct')) sYesNo = 'Yes';
   if (x.includes("that's me")) sYesNo = 'Yes';
   if (x.includes('that is my zip code')) sYesNo = 'Yes';
