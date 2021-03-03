@@ -19,7 +19,7 @@ try {
       Remember.collectzip_task_Counter = parseInt(Memory.collectzip_task_Counter) + 1;
 
    ////////////////////////
-   if(Memory.collectzip_task_Counter <= 2 || Remember.collectzip_task_Counter == 0){
+   if(Remember.collectzip_task_Counter <= 2){
     let sQues = `Please enter the 5 digit billing zip code.`;
     Collect = true;
     Collect = {

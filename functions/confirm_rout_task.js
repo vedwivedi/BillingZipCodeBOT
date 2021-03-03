@@ -9,49 +9,45 @@ exports.confirm_rout_task =async function(context, event, callback,RB) {
     let Say = "";
     // Add your code here.
     let Memory = JSON.parse(event.Memory);
- 
-    
+
     console.log("confirm_rout_task");
-    
-    // if(Memory.question == 'yes_no_task')
-    // {
-    //   Remember.billingzip = Memory.accountzip;
-    //   Remember.zipverifiedyes = 'Yes';
-    //   console.log(`validating zip: ${Memory.accountzip}`);
-    //   Say = `Thank you for validating zip code  <say-as interpret-as='digits'>${Memory.accountzip}</say-as>`;
-    // }
-
-    // else if (Memory.question == 'greeting'){
-    //   Remember.billingzip = Memory.accountzip;
-    //   Remember.zipverifiedyes = 'Yes';
-    //   console.log(`validating zip: ${Memory.accountzip}`);
-    //   Say = `Thank you for validating zip code  <say-as interpret-as='digits'>${Memory.accountzip}</say-as>`;
-    // }
-
-     if(Memory.question == 'collectzip_task'){
-      try{          
-            Remember.question = "confirm_rout_task"
-            Listen = true;
-            Listen =  {
-              "voice_digits": {
-                "num_digits": 1,
-                "finish_on_key": "#",
-                "redirects": {
-                  1: "task://yes_no_task",
-                  2: "task://collectzip_task"
-                }
-              },
-              "tasks": [
-                "yes_no_task",
-                "agent_transfer_task"
-              ]
-            } 
-        }
-      catch{
-            console.log("confirm_rout_task catch: "+ Memory.accountzip);
-            Redirect = "task://fallback";
-        }
+    if(Memory.confirm_rout_Counter === undefined){
+        Remember.collectzip_task_Counter = 0; // need to reset counter for collect zip code task
+        Remember.confirm_rout_Counter = 0;
     }
+    else
+      Remember.confirm_rout_Counter = parseInt(Memory.confirm_rout_Counter) + 1;
+
+      if(Remember.confirm_rout_Counter <= 2) {
+          try{          
+              Remember.question = "confirm_rout_task"
+              Say = `You have entered <say-as interpret-as='digits'>${Memory.accountzip}</say-as> , ,  Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
+              Listen = true;
+              Listen =  {
+                "voice_digits": {
+                  "num_digits": 1,
+                  "finish_on_key": "#",
+                  "redirects": {
+                    1: "task://zip_complet_task",
+                    2: "task://collectzip_task"
+                  }
+                },
+                "tasks": [
+                  "yes_no_task",
+                  "agent_transfer_task"
+                ]
+              } 
+          }
+          catch{
+              console.log("confirm_rout_task catch: "+ Memory.accountzip);
+              Redirect = "task://fallback";
+          } 
+        }
+      else{
+        Listen = false;
+        Redirect = "task://agent_transfer_task";
+      }
+    //}
     RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
 
   } catch (error) {

@@ -1,4 +1,5 @@
 const { postcodeValidator} = require('postcode-validator');
+// import { postcodeValidator } from 'postcode-validator';
 exports.zip_complet_task =async function(context, event, callback,RB) {
   try {
     let Listen = false;
@@ -14,19 +15,17 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
     
     console.log("zip_complet_task");
     
-    if(Memory.question == 'yes_no_task')
-    {
+     if (Memory.question == 'greeting'){
       Remember.billingzip = Memory.accountzip;
       Remember.zipverifiedyes = 'Yes';
       console.log(`validating zip: ${Memory.accountzip}`);
-      Say = `Thank you for validating zip code  <say-as interpret-as='digits'>${Memory.accountzip}</say-as>`;
+      Say = `Thank you for validating zip code.`;
     }
-
-    else if (Memory.question == 'greeting'){
+    else if (Memory.question == 'confirm_rout_task'){
       Remember.billingzip = Memory.accountzip;
       Remember.zipverifiedyes = 'Yes';
       console.log(`validating zip: ${Memory.accountzip}`);
-      Say = `Thank you for validating zip code  <say-as interpret-as='digits'>${Memory.accountzip}</say-as>`;
+      Say = `Thank you for validating zip code.`;
     }
 
     else if(Memory.question == 'collectzip_task'){
@@ -40,8 +39,10 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
           //////////Start validation for Zip code///////////
           if( ZipValidate ){
             Remember.accountzip = collect_zip;
-            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as> , ,  Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
+            Listen = false;
+            //Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as> , ,  Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
             Redirect = "task://confirm_rout_task";
+           
           }
           else{
             Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>, , its not correct.`;

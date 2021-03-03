@@ -31,6 +31,17 @@ try {
         }
       break;
 
+      case 'confirm_rout_task':
+        if(Memory.confirm_rout_Counter >= 2) {
+          Redirect = "task://agent_transfer_task";  
+        }
+        else{
+           // Listen = false;
+            Say = "I did not understand.";
+            Redirect = "task://confirm_rout_task";
+        }
+      break;
+
       default:
         if(Memory.greeting_Counter >= 2) {
           Redirect = "task://agent_transfer_task";  
