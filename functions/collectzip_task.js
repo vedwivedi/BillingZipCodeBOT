@@ -16,12 +16,12 @@ try {
   if(Memory.collectzip_task_Counter === undefined)
       Remember.collectzip_task_Counter = 0;
    else
-      Remember.collectzip_task_Counter = parseInt(Memory.collectzip_task_Counter) + 1;
+      Remember.collectzip_task_Counter = Number(Memory.collectzip_task_Counter) + 1;
 
    ////////////////////////
    if(Remember.collectzip_task_Counter <= 2){
     let sQues = `Please enter the 5 digit billing zip code.`;
-    Collect = true;
+    //Collect = true;
     Collect = {
         "name": "collect_zip",
         "questions": [

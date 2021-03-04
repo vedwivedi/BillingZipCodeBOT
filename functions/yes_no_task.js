@@ -14,7 +14,7 @@ exports.yes_no_task = async function (context, event, callback, RB) {
     Remember.zipverifiedyes = "";
     let Memory = JSON.parse(event.Memory);
     let userInput;
-    Remember.question = "yes_no_task";
+    //Remember.question = "yes_no_task";
     if (event.CurrentInput === undefined) {
       userInput = "";
     }
@@ -36,6 +36,7 @@ exports.yes_no_task = async function (context, event, callback, RB) {
             Remember.billingzip = Memory.accountzip;
             console.log(`greeting validating zip: ${Memory.accountzip}`);
             Say = `Thank you for validating zip code.`;
+
           } else if (event.Field_yes_no_Value === 'No' || YesNo === 'no') {
             Remember.zipverifiedyes = 'No';
             Redirect = "task://collectzip_task";
@@ -49,7 +50,9 @@ exports.yes_no_task = async function (context, event, callback, RB) {
           console.log("yes_no_task case confirm_rout_task");
           if(event.Field_yes_no_Value === 'Yes' || YesNo === 'yes'){
               Remember.billingzip = Memory.accountzip;
+              Remember.question = "yes_no_task_exit";
               Say = `Thank you for providing the zip code.`;
+              //Redirect = "task://goodbye";
           }else if(event.Field_yes_no_Value === 'No' || YesNo === 'no'){
               Remember.zipverifiedyes = 'No';
               Redirect = "task://collectzip_task";
@@ -67,6 +70,7 @@ exports.yes_no_task = async function (context, event, callback, RB) {
     
     RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
   } catch (error) {
+    console.log("error: " +error);
     console.error(error);
     callback(error);
   }

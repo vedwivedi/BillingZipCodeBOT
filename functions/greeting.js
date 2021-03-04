@@ -14,6 +14,7 @@ exports.greeting = async function(context, event, callback,RB) {
     let sQues = "";
     Remember.accountzip = "";
     Remember.billingzip = "";
+    Remember.Agent = false;
 
     if (Memory.ZipCode === undefined) 
         ZipCode = "12345";
@@ -54,6 +55,7 @@ exports.greeting = async function(context, event, callback,RB) {
      RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
     
   } catch (error) {
+    console.log("error: " +error);
     console.error(error);
     callback( error);
   }

@@ -15,7 +15,8 @@ exports.agent_transfer_task =async function(context, event, callback,RB) {
      RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
     
      } catch (error) {
-    console.error(error);
-    callback( error);
+        console.log("error: " +error);
+        console.error(error);
+        callback( error);
     }
-    };
+};

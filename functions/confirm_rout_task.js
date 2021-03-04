@@ -6,6 +6,7 @@ exports.confirm_rout_task =async function(context, event, callback,RB) {
     let Tasks = false;
     let Redirect = false;
     let Handoff = false;
+    let Prompt = false;
     let Say = "";
     // Add your code here.
     let Memory = JSON.parse(event.Memory);
@@ -16,13 +17,15 @@ exports.confirm_rout_task =async function(context, event, callback,RB) {
         Remember.confirm_rout_Counter = 0;
     }
     else
-      Remember.confirm_rout_Counter = parseInt(Memory.confirm_rout_Counter) + 1;
+      Remember.confirm_rout_Counter = Number(Memory.confirm_rout_Counter) + 1;
 
       if(Remember.confirm_rout_Counter <= 2) {
-          try{          
-              Remember.question = "confirm_rout_task"
-              Say = `You have entered <say-as interpret-as='digits'>${Memory.accountzip}</say-as> , ,  Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
-              Listen = true;
+                    
+              Remember.question = "confirm_rout_task";
+              Say = `You have entered <say-as interpret-as='digits'>${Memory.accountzip}</say-as>.`;
+              Prompt = `Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
+              Say += Prompt;
+              
               Listen =  {
                 "voice_digits": {
                   "num_digits": 1,
@@ -37,20 +40,15 @@ exports.confirm_rout_task =async function(context, event, callback,RB) {
                   "agent_transfer_task"
                 ]
               } 
-          }
-          catch{
-              console.log("confirm_rout_task catch: "+ Memory.accountzip);
-              Redirect = "task://fallback";
-          } 
         }
       else{
         Listen = false;
-        Redirect = "task://agent_transfer_task";
+        Redirect = "task://fallback";
       }
-    //}
     RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
 
   } catch (error) {
+    console.log("error: " +error);
     console.error(error);
     callback( error);
   }

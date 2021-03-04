@@ -29,7 +29,7 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
     }
 
     else if(Memory.question == 'collectzip_task'){
-      try{
+      
           Remember.question = "collectzip_task";
           collect_zip = Memory.twilio.collected_data.collect_zip.answers.collect_zip.answer;
           console.log("collectzip_task: "+collect_zip);
@@ -44,7 +44,7 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
            
           }
           else{
-            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>, , That is not a valid zip code.`;
+            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as> That is not a valid zip code.`;
             console.log("collect_zip.length: "+collect_zip);
               if(Memory.collectzip_task_Counter >= 2)
                   Redirect = "task://agent_transfer_task"; 
@@ -52,16 +52,12 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
                   Redirect = 'task://collectzip_task';
             }
           //////////End Zip code validation//////////////////
-        }
-      catch{
-            Remember.accountzip = collect_zip;
-            console.log("collectzip_task catch: "+collect_zip);
-            Redirect = "task://fallback";
-        }
+       
     }
     RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
 
   } catch (error) {
+    console.log("error: " +error);
     console.error(error);
     callback( error);
   }

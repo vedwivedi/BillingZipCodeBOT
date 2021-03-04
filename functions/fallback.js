@@ -56,6 +56,7 @@ try {
    RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
   
 } catch (error) {
+  console.log("error: " +error);
   console.error(error);
   callback( error);
   }
