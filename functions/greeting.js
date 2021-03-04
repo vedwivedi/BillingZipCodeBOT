@@ -25,14 +25,14 @@ exports.greeting = async function(context, event, callback,RB) {
     if(Memory.greeting_Counter === undefined)
         Remember.greeting_Counter = 0;
     else
-        Remember.greeting_Counter = parseInt(Memory.greeting_Counter) + 1;
+        Remember.greeting_Counter = Number(Memory.greeting_Counter) + 1;
 
     /////////////////////////////////////////////////////////////////
     if(Remember.greeting_Counter <= 2){
       sQues = `Is <say-as interpret-as='digits'>${ZipCode}</say-as> , ,  the billing zip code. Say yes or no, you can also press 1 for yes and 2 for no `;
       console.log(sQues);
       Say = `${sQues}`;
-      Listen = true;
+      
       Listen =  {
         "voice_digits": {
           "num_digits": 1,
@@ -49,6 +49,7 @@ exports.greeting = async function(context, event, callback,RB) {
       } 
     }
     else{
+      Listen = false;
        Redirect = "task://agent_transfer_task";
     }
       Remember.question = 'greeting';

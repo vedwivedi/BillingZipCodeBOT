@@ -8,6 +8,7 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
     let Tasks = false;
     let Redirect = false;
     let Handoff = false;
+    let Prompt = false;
     let Say = "";
     // Add your code here.
     let Memory = JSON.parse(event.Memory);
@@ -25,7 +26,7 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
       Remember.billingzip = Memory.accountzip;
       Remember.zipverifiedyes = 'Yes';
       console.log(`validating zip: ${Memory.accountzip}`);
-      Say = `Thank you for validating zip code.`;
+      Say = `Thank you for providing the zip code.`;
     }
 
     else if(Memory.question == 'collectzip_task'){
@@ -44,7 +45,10 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
            
           }
           else{
-            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as> That is not a valid zip code.`;
+            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>.`
+            Prompt = `That is not a valid zip code.`;
+            Say += Prompt;
+             
             console.log("collect_zip.length: "+collect_zip);
               if(Memory.collectzip_task_Counter >= 2)
                   Redirect = "task://agent_transfer_task"; 
