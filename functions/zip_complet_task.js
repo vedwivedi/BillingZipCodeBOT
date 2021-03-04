@@ -40,12 +40,11 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
           if( ZipValidate ){
             Remember.accountzip = collect_zip;
             Listen = false;
-            //Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as> , ,  Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
             Redirect = "task://confirm_rout_task";
            
           }
           else{
-            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>, , its not correct.`;
+            Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>, , That is not a valid zip code.`;
             console.log("collect_zip.length: "+collect_zip);
               if(Memory.collectzip_task_Counter >= 2)
                   Redirect = "task://agent_transfer_task"; 
