@@ -21,7 +21,7 @@ exports.confirm_rout_task = async function (context, event, callback, RB) {
 
     if (Remember.confirm_rout_Counter <= 2) {
       Remember.question = "confirm_rout_task";
-      Say = `You have entered <say-as interpret-as='digits'>${Memory.accountzip}</say-as>.`;
+      Say = `You have entered <say-as interpret-as='digits'>${Memory.accountzip}</say-as> ,,`;
       Prompt = `Is that the correct billing zip code? Say yes or no, you can also press 1 for yes or 2 for no`;
       Say += Prompt;
       Listen = {

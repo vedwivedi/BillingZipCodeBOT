@@ -36,7 +36,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-6425.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-6425-dev.twil.io/index"
                     }
                 ]
             },
@@ -48,7 +48,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-6425.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-6425-dev.twil.io/index"
                     }
                 ]
             },
@@ -94,7 +94,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-6425.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-6425-dev.twil.io/index"
                     }
                 ]
             },
@@ -224,7 +224,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-6425.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-6425-dev.twil.io/index"
                     }
                 ]
             },
@@ -236,7 +236,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-6425.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-6425-dev.twil.io/index"
                     }
                 ]
             },
@@ -248,7 +248,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-6425.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-6425-dev.twil.io/index"
                     }
                 ]
             },
@@ -269,7 +269,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-6425.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-6425-dev.twil.io/index"
                     }
                 ]
             },

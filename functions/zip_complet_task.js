@@ -40,7 +40,7 @@ exports.zip_complet_task = async function (context, event, callback, RB) {
         Redirect = "task://confirm_rout_task";
       }
       else {
-        Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>.`
+        Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as> ,,`
         Prompt = `That is not a valid zip code.`;
         Say += Prompt;
 
