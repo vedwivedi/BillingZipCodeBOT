@@ -29,7 +29,6 @@ exports.yes_no_task = async function (context, event, callback, RB) {
     console.log(event.Field_yes_no_Value);
     console.log("YesNo: " + YesNo);
     //Remember.question = "yes_no_task";
-    
       switch (Memory.question) {
         case 'greeting':
           if (event.Field_yes_no_Value === 'Yes' || YesNo === 'yes') {
@@ -52,22 +51,21 @@ exports.yes_no_task = async function (context, event, callback, RB) {
               Remember.billingzip = Memory.accountzip;
               Remember.question = "yes_no_task_exit";
               Say = `Thank you for providing the zip code.`;
-              //Redirect = "task://goodbye";
+              
           }else if(event.Field_yes_no_Value === 'No' || YesNo === 'no'){
               Remember.zipverifiedyes = 'No';
               Redirect = "task://collectzip_task";
           }else{
-            Remember.question = "collectzip_task";
+            Remember.question = "ques_collectzip";
             Redirect = 'task://fallback';
           }
         break;
         default:
-           Remember.question = "collectzip_task";
+           Remember.question = "ques_collectzip";
            Redirect = 'task://fallback';
 
           break;
       }
-    
     RB(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
   } catch (error) {
     console.log("error: " +error);

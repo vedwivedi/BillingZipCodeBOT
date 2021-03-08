@@ -20,7 +20,7 @@ try {
             Redirect = "task://greeting";
         }
       break;
-      case 'collectzip_task':
+      case 'ques_collectzip':
         if(Memory.collectzip_task_Counter >= 2) {
           Redirect = "task://agent_transfer_task";  
         }

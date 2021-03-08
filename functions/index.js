@@ -14,7 +14,7 @@ console.log("index");
    const { CurrentTaskConfidence } = event;
    let CurrentConfidencevalue = Number(CurrentTaskConfidence);
    console.log("CurrentTask : "+ CurrentTask +" ,Confidence: " + CurrentTaskConfidence + '\n');
-   if (CurrentConfidencevalue === 1 || CurrentConfidencevalue === 0) {
+   //if (CurrentConfidencevalue === 1 || CurrentConfidencevalue === 0) {
   //calling task handlers
   switch (CurrentTask) {
       case 'greeting':
@@ -50,14 +50,14 @@ console.log("index");
     await FallbackTaskHandler.fallback(context, event, callback,responseBuilder.RB);
     break;
   }
- }
- else{
-    console.log("else fallback");
-    await FallbackTaskHandler.fallback(
-    context,
-    event,
-    callback,
-    responseBuilder.RB
-  );}
+ //}
+//  else{
+//     console.log("else fallback");
+//     await FallbackTaskHandler.fallback(
+//     context,
+//     event,
+//     callback,
+//     responseBuilder.RB
+//   );}
 
 };

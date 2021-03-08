@@ -29,10 +29,13 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
       Say = `Thank you for providing the zip code.`;
     }
 
-    else if(Memory.question == 'collectzip_task'){
+    else if(Memory.question == 'ques_collectzip'){
       
-          Remember.question = "collectzip_task";
-          collect_zip = Memory.twilio.collected_data.collect_zip.answers.collect_zip.answer;
+          //Remember.question = "collectzip_task";
+          collect_zip = Memory.twilio.collected_data.collect_billing_zip.answers.collectbillingzip.answer;
+          //collect_zip = event.Field_entered_billzip_Value;
+          //collect_zip = '12345';
+          //entered_billzip
           console.log("collectzip_task: "+collect_zip);
          const ZipValidate = postcodeValidator(collect_zip, 'US'); // zip code validate
           console.log("ZipValidator: " + ZipValidate); // true and false
@@ -41,8 +44,8 @@ exports.zip_complet_task =async function(context, event, callback,RB) {
           if( ZipValidate ){
             Remember.accountzip = collect_zip;
             Listen = false;
+            Collect = false;
             Redirect = "task://confirm_rout_task";
-           
           }
           else{
             Say = `You have entered <say-as interpret-as='digits'>${collect_zip}</say-as>.`
