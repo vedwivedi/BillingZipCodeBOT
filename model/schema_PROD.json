@@ -1,7 +1,7 @@
 {
-    "friendlyName" : "GetAccountInfo",
+    "friendlyName" : "BillingZipCodeBOT",
     "logQueries" : true,
-    "uniqueName" : "GetAccountInfo",
+    "uniqueName" : "BillingZipCodeBOT",
     "defaults" : {
         "defaults" : {
             "assistant_initiation" : "task://greeting",
@@ -17,19 +17,7 @@
                 "validate" : {
                     "on_failure" : {
                         "repeat_question" : false,
-                        "messages" : [
-                            { "say" : { "speech" : "" } },
-                            {
-                                "say" : {
-                                    "speech" : "I still didn't catch that. Please repeat."
-                                }
-                            },
-                            {
-                                "say" : {
-                                    "speech" : "Let's try one last time. Say it again please."
-                                }
-                            }
-                        ]
+                        "messages" : [{ "say" : { "speech" : "" } }]
                     },
                     "on_success" : { "say" : { "speech" : "" } },
                     "max_attempts" : 1
@@ -44,11 +32,11 @@
     "fieldTypes" : [],
     "tasks" : [
         {
-            "uniqueName" : "check_name_Yes_No",
+            "uniqueName" : "confirm_rout_task",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
                     }
                 ]
             },
@@ -56,314 +44,40 @@
             "samples" : []
         },
         {
-            "uniqueName" : "yes_no",
+            "uniqueName" : "zip_complet_task",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
-                    }
-                ]
-            },
-            "fields" : [
-                {
-                    "uniqueName" : "yes_no",
-                    "fieldType" : "Twilio.YES_NO"
-                }
-            ],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's not my name."
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that't not it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it is correct"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's wrong"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that's right {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "thank you {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  thank you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Please {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} please"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is not my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's incorrect"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that't not it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} not correct"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that is my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that is my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} not"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} its not my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it's right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it's correct"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "check_name_task",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
-                    },
-                    { "listen" : true }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "set_MM",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "This communication is from a debt collector, this is an attempt to collect a debt and any information obtained will be used for that purpose"
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
                     }
                 ]
             },
             "fields" : [],
             "samples" : []
-        },
-        {
-            "uniqueName" : "ZipOrSSN_Taks",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
-                    },
-                    { "listen" : true }
-                ]
-            },
-            "fields" : [
-                {
-                    "uniqueName" : "zip_ssn",
-                    "fieldType" : "Twilio.NUMBER_SEQUENCE"
-                }
-            ],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "zip code is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "my zip code is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "zipcode {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} its my zip"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} its my ssn"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "okay my ssn is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "thank you {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} thank you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} is my ssn"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} is my zip"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "my ssn is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "my zip is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "zip is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "ssn is {zip_ssn} "
-                }
-            ]
-        },
-        {
-            "uniqueName" : "getAccount",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
-                    },
-                    { "listen" : true }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "agent_transfer",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
-                    }
-                ]
-            },
-            "fields" : [
-                {
-                    "uniqueName" : "Agent",
-                    "fieldType" : "Twilio.ALPHANUMERIC"
-                }
-            ],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "operator"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Please connect me to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "I want to talk to an operator"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "I want to to talk to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "transfer me to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "I'd like to talk to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Operator"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{Agent}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "discuss with agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "talk to agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "i want agent transfer"
-                }
-            ]
         },
         {
             "uniqueName" : "dummy",
             "actions" : {
                 "actions" : [
-                    { "say" : { "speech" : " " } },
-                    { "remember" : {} },
                     {
-                        "redirect" : "task://agent_transfer"
+                        "say" : {
+                            "speech" : "Please enter the 5 digit billing zip code."
+                        }
+                    },
+                    {
+                        "listen" : {
+                            "tasks" : ["zip_complet_task"],
+                            "voice_digits" : {
+                                "finish_on_key" : "#",
+                                "num_digits" : 5
+                            }
+                        }
+                    },
+                    {
+                        "remember" : {
+                            "collectzip_task_Counter" : 2,
+                            "question" : "collectzip_task"
+                        }
                     }
                 ]
             },
@@ -376,20 +90,177 @@
             ]
         },
         {
+            "uniqueName" : "yes_no_task",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "yes_no",
+                    "fieldType" : "Twilio.YES_NO"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that is my zip code"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that is not my zip code"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} That's me"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} It is true"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} negative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} it's correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} it's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} its not my zip code"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} not correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that't not it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's incorrect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}  that is not my zip code"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Please {yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}  thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thank you {yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's right {yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's wrong"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} it is correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that't not it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's not my zip code."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}  that is my zip code"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "collectzip_task",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "agent_transfer_task",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
             "uniqueName" : "greeting",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
-                    },
-                    { "listen" : true }
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
                 ]
             },
             "fields" : [],
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "Hi"
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
                 }
             ]
         },
@@ -398,9 +269,8 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2220-dev.twil.io/index"
-                    },
-                    { "listen" : true }
+                        "redirect" : "https://billing-zipcode-bot-1998-dev.twil.io/index"
+                    }
                 ]
             },
             "fields" : [],
@@ -408,6 +278,6 @@
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "GetAccountInfo_4-2-2021_11.41.03pm"
+        "uniqueName" : "BillingZipCodeBOT_9-3-2021_12.49.06am"
     }
 }

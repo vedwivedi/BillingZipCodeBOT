@@ -1,5 +1,4 @@
 const { postcodeValidator } = require('postcode-validator');
-// import { postcodeValidator } from 'postcode-validator';
 exports.zip_complet_task = async function (context, event, callback, RB) {
   try {
     let Listen = false;

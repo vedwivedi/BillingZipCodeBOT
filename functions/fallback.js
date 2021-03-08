@@ -1,4 +1,3 @@
-const axios = require('axios');
 exports.fallback = async function (context, event, callback, RB) {
   try {
     let Listen = false;
