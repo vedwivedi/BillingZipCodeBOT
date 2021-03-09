@@ -25,7 +25,7 @@ exports.collectzip_task = async function (context, event, callback, RB) {
         "name": "collect_billing_zip",
         "questions": [
           {
-            "question": "Please enter the 5 digit billing zip code.",
+            "question": "Please say or enter the 5 digit billing zip code.",
             "voice_digits": {
               "num_digits": 5,
               "finish_on_key": "#"
