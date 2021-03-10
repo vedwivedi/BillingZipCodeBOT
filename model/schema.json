@@ -107,107 +107,15 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no} that is my zip code"
+                    "taggedText" : "{yes_no} that is not"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no} that is not my zip code"
+                    "taggedText" : "{yes_no} that is not correct"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no} not"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} That's me"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} It is true"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} negative"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it's correct"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it's right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} its not my zip code"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} not"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} not correct"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that't not it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's incorrect"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is not my zip code"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} please"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Please {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  thank you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "thank you {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that's right {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's wrong"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it is correct"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that't not it"
+                    "taggedText" : "{yes_no}  that is my zip code"
                 },
                 {
                     "language" : "en-US",
@@ -215,7 +123,107 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is my zip code"
+                    "taggedText" : "{yes_no} that't not it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} it is correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's wrong"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's right {yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thank you {yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}  thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Please {yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}  that is not my zip code"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that's incorrect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that't not it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} not correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} its not my zip code"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} it's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} it's correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} negative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} It is true"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} That's me"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that is not my zip code"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{yes_no} that is my zip code"
                 }
             ]
         },
@@ -256,11 +264,11 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "hi"
+                    "taggedText" : "hello"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "hello"
+                    "taggedText" : "hi"
                 }
             ]
         },
@@ -278,6 +286,6 @@
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "BillingZipCodeBOT_9-3-2021_12.49.06am"
+        "uniqueName" : "BillingZipCodeBOT_9-3-2021_7.53.40pm"
     }
 }
