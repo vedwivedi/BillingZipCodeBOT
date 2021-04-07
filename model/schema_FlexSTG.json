@@ -36,7 +36,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index.html"
+                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index"
                     }
                 ]
             },
@@ -48,7 +48,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index.html"
+                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index"
                     }
                 ]
             },
@@ -94,7 +94,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index.html"
+                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index"
                     }
                 ]
             },
@@ -232,7 +232,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index.html"
+                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index"
                     }
                 ]
             },
@@ -244,7 +244,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index.html"
+                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index"
                     }
                 ]
             },
@@ -256,7 +256,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index.html"
+                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index"
                     }
                 ]
             },
@@ -277,7 +277,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index.html"
+                        "redirect" : "https://billing-zipcode-bot-7586-dev.twil.io/index"
                     }
                 ]
             },
