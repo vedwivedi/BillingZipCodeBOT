@@ -28,23 +28,32 @@ exports.greeting = async function (context, event, callback, RB) {
       Remember.greeting_Counter = Number(Memory.greeting_Counter) + 1;
 
     /////////////////////////////////////////////////////////////////
-    if (Remember.greeting_Counter <= 2) {
-      sQues = `Is <say-as interpret-as='digits'>${ZipCode}</say-as> , ,  the billing zip code. Say yes or no, you can also press 1 for yes and 2 for no `;
-      console.log(sQues);
-      Say = `${sQues}`;
-      Listen = {
-        "voice_digits": {
-          "num_digits": 1,
-          "finish_on_key": "#",
-          "redirects": {
-            1: "task://zip_complet_task",
-            2: "task://collectzip_task"
-          }
-        },
-        "tasks": [
-          "yes_no_task",
-          "agent_transfer_task"
-        ]
+    if (Remember.greeting_Counter <= 2)
+    {
+      if (ZipCode.length >= 5) //if (ZipCode.length === 5) 
+      {
+        sQues = `Is <say-as interpret-as='digits'>${ZipCode}</say-as> , ,  the billing zip code. Say yes or no, you can also press 1 for yes and 2 for no `;
+        console.log(sQues);
+        Say = `${sQues}`;
+        Listen = {
+          "voice_digits": {
+            "num_digits": 1,
+            "finish_on_key": "#",
+            "redirects": {
+              1: "task://zip_complet_task",
+              2: "task://collectzip_task"
+            }
+          },
+          "tasks": [
+            "yes_no_task",
+            "agent_transfer_task"
+          ]
+        }
+      }
+      else 
+      {
+        Listen = false;
+        Redirect = "task://collectzip_task";
       }
     }
     else {
