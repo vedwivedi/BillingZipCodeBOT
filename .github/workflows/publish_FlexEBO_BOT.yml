@@ -33,4 +33,4 @@ jobs:
          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID_FlexEBO }}
          TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY_SID_FlexEBO }}
          TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET_FlexEBO }} 
-        run: twilio autopilot:update --schema model/schema_FlexFACS.json --unique-name BillingZipCodeBOT
+        run: twilio autopilot:update --schema model/schema_FlexEBO.json --unique-name BillingZipCodeBOT
